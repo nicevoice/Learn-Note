@@ -42,12 +42,12 @@ service mysqld restart #重启MySQL
 mysql -u root -p  #进入mysql控制台
 show master status; 
 ```
-查看主服务器，出现以下类似信息
-+------------------+--------------+-----------------+------------------+
-|File              | Binlog_Do_DB | Binlog_Ignore_DB|                  |
-+------------------+--------------+-----------------+------------------+
-|mysql-bin.000019  |   7131       |osyunweidb       |mysql             |
-+------------------+--------------+-----------------+------------------+
+查看主服务器，出现以下类似信息  
++------------------+--------------+-----------------+------------------+  
+|File              | Binlog_Do_DB | Binlog_Ignore_DB|                  |  
++==================+==============+=================+==================+  
+|mysql-bin.000019  |   7131       |osyunweidb       |mysql             |  
++------------------+--------------+-----------------+------------------+  
 1 row in set (0.00 sec)
 注意：这里记住File的值：`mysql-bin.000019`和Position的值：`7131`，后面会用到。
 
@@ -59,8 +59,8 @@ log-bin=mysql-bin #启动MySQ二进制日志系统，注意：如果原来的配
 replicate-do-db=osyunweidb  #需要同步的数据库名，如果有多个数据库，可重复此参数，每个数据库一行
 replicate-ignore-db=mysql  #不同步mysql系统数据库
 ```
-:wq!   #保存退出
-`service mysqld restart`  #重启MySQL
+:wq!   #保存退出  
+`service mysqld restart`  #重启MySQL  
 注意：MySQL5.1.7版本之后，已经不支持把master配置属性写入my.cnf配置文件中了，只需要把同步的数据库和要忽略的数据库写入即可。
 ```bash
 mysql -u root -p #进入MySQL控制台
@@ -70,24 +70,24 @@ master_host='192.168.21.169',master_user='osyunweidbbak',master_password='123456
 slave start;   #开启slave同步进程
 SHOW SLAVE STATUS\G  #查看slave同步信息，出现以下内容
 ```
-***************************1. row ***************************
-            Slave_IO_State: Waiting for master to send event
-                 Master_Host: 192.168.21.169
-                 Master_User: osyunweidbbak
-                 Master_Port: 3306
-               Connect_Retry: 60
-             Master_Log_File: mysql-bin.000019
-         Read_Master_Log_Pos: 7131
-              Relay_Log_File:MySQLSlave-relay-bin.000002
-               Relay_Log_Pos: 253
-       Relay_Master_Log_File: mysql-bin.000019
-            Slave_IO_Running:Yes
-           Slave_SQL_Running: Yes
-             Replicate_Do_DB: osyunweidb
-         Replicate_Ignore_DB: mysql
-          Replicate_Do_Table:
-      Replicate_Ignore_Table:
-1 row in set (0.00 sec)
+***************************1. row ***************************  
+            Slave_IO_State: Waiting for master to send event  
+                 Master_Host: 192.168.21.169  
+                 Master_User: osyunweidbbak  
+                 Master_Port: 3306  
+               Connect_Retry: 60  
+             Master_Log_File: mysql-bin.000019  
+         Read_Master_Log_Pos: 7131    
+              Relay_Log_File:MySQLSlave-relay-bin.000002  
+               Relay_Log_Pos: 253  
+       Relay_Master_Log_File: mysql-bin.000019  
+            Slave_IO_Running:Yes  
+           Slave_SQL_Running: Yes  
+             Replicate_Do_DB: osyunweidb  
+         Replicate_Ignore_DB: mysql  
+          Replicate_Do_Table:  
+      Replicate_Ignore_Table:  
+1 row in set (0.00 sec)  
 注意查看：
 ***Slave_IO_Running: Yes***
 ***Slave_SQL_Running: Yes***
