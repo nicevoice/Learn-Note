@@ -184,3 +184,59 @@ info = {'name':'rogee', 'age':12}
 show_2(**info)
 ```
  
+## 类
+
+* 一个类的简单示例  
+```python
+__metaclass__ = type
+
+class Person:
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+
+    def greet(self):
+        print "hello , this is %s" % self.name
+```
+* 如何对类方法进行私有化, 在方法的前面加上双下划线即可  
+```python
+
+class Person:
+    def __getName(self):
+        return self.name
+```
+* 类的继承  
+```python
+class Person:
+    def init(self):
+        self.name = 'people'
+
+class Man(Person):
+    def init(self):
+        self.name = 'rogee'
+```
+
+* `__bases__` 和`__class__`会分别给出当前类的基类, 和对象所属的类  
+* 类的多继承实现  
+```python
+class Calculator:
+    def cal(self, expression):
+        self.value = eval(expression)
+
+class Talker:
+    def talk(self):
+        print 'the value is %d' % self.value
+
+class TalkingCal(Calculator, Talker):
+    pass
+
+cals = TalkingCal()
+cals.cal('1+2+3')
+cals.talk()
+```
+* 几个函数:`hasattr(object, name)`, `isinstance(object, class)`, `issubclass(A, B)`, `random.choice(list)`, `setattr(object, name, value)`, `getattr(object, name,[, defalutvalue])`
+
+## 异常  
+
