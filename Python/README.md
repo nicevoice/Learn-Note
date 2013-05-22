@@ -106,6 +106,7 @@ from string import split, title, replace
 import string as string1
 from string import split as split1
 ```
+
 * 赋值  
 ```python
 x, y, z = 1, 2, 3 #多个赋值
@@ -114,7 +115,6 @@ x, y = y, x #交换
     # 中转赋值
 value = 1,2,3
 x, y , z = value
-
     # 字典赋值
 dict = {'name':123, 'age':123}
 a = dict.popitem();
@@ -135,30 +135,27 @@ else:
 * 断言`assets`,会引起崩溃, 但是这对早期程序设计是有帮助的  
 * 循环
 ```python
-    #while
+""" while """
 while true:
-    print '1'
-
-    # for 
+	print '1'
+""" for  """
 for word in words
-    print word
-
+	print word
+""" 另一个循环 """
 for key, value in dict.items()
-    print key, value
+	print key, value    
+``` 
 
-    # 列表推导式
-    [x*x for x in range(10)]ｘ
-    [(x, y) for x in range(3) for y in range (3)]
-```
+* 列表推导式  `[x*x for x in range(10)]ｘ`和`[(x, y) for x in range(3) for y in range (3)]`  
+
 
 ## 抽象  
 * `callable(function)`可以判定函数是否可以调用, **3.0**后不可用, 需要使用`hasattr(func, __call__)`来替代     
 * 函数的样子如下, 使用`function.__doc__`来查看函数的文档   
-
 ```python
 def hello(name):
     "here is the doc of the function"
-    return 'hello' + name
+    return 'hello' + name  
 ```
 * 关键字收集  
 
