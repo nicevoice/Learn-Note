@@ -147,19 +147,21 @@ for key, value in dict.items()
     print key, value
 
     # 列表推导式
-[x*x for x in range(10)]ｘ
-[(x, y) for x in range(3) for y in range (3)]
+    [x*x for x in range(10)]ｘ
+    [(x, y) for x in range(3) for y in range (3)]
 ```
 
 ## 抽象  
 * `callable(function)`可以判定函数是否可以调用, **3.0**后不可用, 需要使用`hasattr(func, __call__)`来替代     
 * 函数的样子如下, 使用`function.__doc__`来查看函数的文档   
+
 ```python
 def hello(name):
     "here is the doc of the function"
     return 'hello' + name
 ```
 * 关键字收集  
+
 ```python
 def show(x, y, z,*param, **key):
     print(x,y,x)
@@ -169,7 +171,9 @@ def show(x, y, z,*param, **key):
     # *param用于收集值参数, **用于收集关键字参数
 show(1,2,3,4,5,6,a=1,b=4,c=4)
 ```
+
 * 关键字收集的反转过程  
+
 ```python
 def show_1(name, age):
     print '%s is %d years old'%(name, age)
@@ -183,4 +187,4 @@ def show_2(name, age):
 info = {'name':'rogee', 'age':12}
 show_2(**info)
 ```
-* 
+ 
