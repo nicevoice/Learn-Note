@@ -140,14 +140,15 @@ while true:
     print '1'
 
     # for 
-for word in words
+for word in words:
     print word
 
-for key, value in dict.items()
+for key, value in dict.items():
     print key, value
 
     # 列表推导式
     [x*x for x in range(10)]ｘ
+
     [(x, y) for x in range(3) for y in range (3)]
 ```
 
