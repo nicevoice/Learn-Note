@@ -111,11 +111,11 @@ from string import split as split1
 x, y, z = 1, 2, 3 #多个赋值
 x, y = y, x #交换
 
-# 中转赋值
+    # 中转赋值
 value = 1,2,3
 x, y , z = value
 
-#字典赋值
+    # 字典赋值
 dict = {'name':123, 'age':123}
 a = dict.popitem();
 key, value = a
@@ -135,17 +135,18 @@ else:
 * 断言`assets`,会引起崩溃, 但是这对早期程序设计是有帮助的  
 * 循环
 ```python
-#while
+    #while
 while true:
     print '1'
 
-# for 
+    # for 
 for word in words
     print word
 
 for key, value in dict.items()
     print key, value
-# 列表推导式
+
+    # 列表推导式
 [x*x for x in range(10)]ｘ
 [(x, y) for x in range(3) for y in range (3)]
 ```
@@ -164,7 +165,8 @@ def show(x, y, z,*param, **key):
     print(x,y,x)
     print param
     print key
-# *param用于收集值参数, **用于收集关键字参数
+    
+    # *param用于收集值参数, **用于收集关键字参数
 show(1,2,3,4,5,6,a=1,b=4,c=4)
 ```
 * 关键字收集的反转过程  
