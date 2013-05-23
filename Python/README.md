@@ -239,4 +239,55 @@ cals.talk()
 * 几个函数:`hasattr(object, name)`, `isinstance(object, class)`, `issubclass(A, B)`, `random.choice(list)`, `setattr(object, name, value)`, `getattr(object, name,[, defalutvalue])`
 
 ## 异常  
+```python
+class CallException:
+    debug = True
+    
+    def calc(self, *param):
+        try:
+            return param[0] / param[1]
+        except ZeroDivisionError:
+            if self.debug:
+                print 'can not divide by 0'
+            else:
+                raise
+        except TypeError:
+            if self.debug:
+                print 'invalid input'
+            else:
+                raise
 
+cal = CallException()
+print cal.calc(10, 'abc')
+print cal.calc(10, 0)    
+```
+
+* 用一个块捕获多个异常  
+```python
+...
+    except(ZerodivisionError, TypeError, NameError):
+        ...
+...
+```
+
+* 对象的捕获  
+```
+...
+    except (ZerodivisionError, TypeError), e:
+        print e
+...
+```
+* 一个完整的异常操作代码块  
+```python
+try:
+    return 1/0
+expect NameError:
+    print unknow Variable"
+else:
+    print 'try again'
+finally:
+    print '什么时候都让我来擦屁股'
+
+```
+
+* 
